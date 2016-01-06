@@ -2,8 +2,10 @@ package my.emailreader.EmailReaderJava.bll;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import my.emailreader.EmailReaderJava.util.*;
 import my.emailreader.EmailReaderJava.dal.DatabaseAccess;
+import my.emailreader.EmailReaderJava.exception.TypeWrongException;
 import my.emailreader.EmailReaderJava.model.Email;
 public class EmailProcess {
     public Email[] getEmails(int userId, String type){
@@ -65,7 +67,9 @@ public class EmailProcess {
         return email;
     }
 
-    private String queryCreator(int userId, String type){
+    public String queryCreator(int userId, String type) throws TypeWrongException{
+    	if(type!="sender"&&type!="receiver")
+    		throw new TypeWrongException();
         return "select * from emails where "+type+"='"+userId+"';";
     }
 

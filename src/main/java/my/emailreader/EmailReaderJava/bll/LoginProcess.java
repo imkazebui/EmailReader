@@ -4,6 +4,7 @@ import my.emailreader.EmailReaderJava.dal.DatabaseAccess;
 import my.emailreader.EmailReaderJava.model.*;
 import my.emailreader.EmailReaderJava.util.Message;
 import java.sql.*;
+import static org.mentaregex.Regex.*;
 
 
 public class LoginProcess {
@@ -29,6 +30,7 @@ public class LoginProcess {
         }
         return null;
     }
+
     public String queryCreator(String email, String pass){
         return "select * from users where email='"+email+"' and password='"+pass+"';";
     }
