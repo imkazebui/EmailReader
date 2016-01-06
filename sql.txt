@@ -1,0 +1,4 @@
+alter table emails add column title varchar(50);
+
+update emails set title="Test email from user1" where id=1;
+update emails set title="Test email from admin" where id=2;
