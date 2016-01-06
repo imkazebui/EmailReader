@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2016 at 09:15 AM
+-- Generation Time: Jan 06, 2016 at 04:47 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -30,19 +30,21 @@ USE `emailreader`;
 
 CREATE TABLE IF NOT EXISTS `emails` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
   `sender` int(11) NOT NULL,
   `receiver` int(11) NOT NULL,
   `message` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `emails`
 --
 
-INSERT INTO `emails` (`id`, `sender`, `receiver`, `message`) VALUES
-(1, 2, 1, 'This is a message from user1'),
-(2, 1, 2, 'Chao');
+INSERT INTO `emails` (`id`, `title`, `sender`, `receiver`, `message`) VALUES
+(1, 'Test email from user1', 2, 1, 'This is a message from user1'),
+(2, 'Test email from admin', 1, 2, 'Chao'),
+(3, 'Helloworld', 1, 2, 'Hello');
 
 -- --------------------------------------------------------
 
@@ -57,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lname` varchar(50) NOT NULL,
   `fname` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `users`
